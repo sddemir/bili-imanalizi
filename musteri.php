@@ -182,7 +182,7 @@
                 </div>
                 <div class="column is-one-third">
                     <div class="field">
-                        <label class="label">İlçe ID</label>
+                        <label class="label">İlçe</label>
                         <div class="control input-container">
                             <div   class="select">
                                 <select name="ilce_id" style="color:#FFD56F ">
@@ -190,9 +190,9 @@
                                     include 'db.php'; // Include the database connection file
 
                                     // Fetch İlçe IDs from the database
-                                    $result = $conn->query("SELECT ilce_id FROM gaziantep_ilceler");
+                                    $result = $conn->query("SELECT ilce_ad FROM gaziantep_ilceler");
                                     while ($row = $result->fetch_assoc()) {
-                                        echo "<option value='" . $row['ilce_id'] . "'>" . $row['ilce_id'] . "</option>";
+                                        echo "<option value='" . $row['ilce_ad'] . "'>" . $row['ilce_ad'] . "</option>";
                                     }
 
                                     $conn->close(); // Close the database connection

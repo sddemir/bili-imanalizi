@@ -10,12 +10,12 @@ if (isset($_POST['submit'])) {
     $firstName = $names[0];
     $lastName = isset($names[1]) ? $names[1] : '';
 
-    $sth = $conn->prepare("SELECT * FROM musteri_bilgi WHERE musteri_ad = :firstName AND musteri_soyad = :lastName");
+    $sth = $conn->prepare("SELECT * FROM musteri_bilgi WHERE musteri_ad LIKE :firstName OR musteri_soyad LIKE :lastName");
     $sth->bindParam(':firstName', $firstName, PDO::PARAM_STR);
     $sth->bindParam(':lastName', $lastName, PDO::PARAM_STR);
     $sth->setFetchMode(PDO::FETCH_ASSOC);
     $sth->execute();
-
+//("SELECT * FROM musteri_bilgi WHERE (musteri_ad = :firstName AND musteri_soyad = :lastName) OR (musteri_ad LIKE firstName)");
     $results = $sth->fetchAll();
 
     if ($results) {

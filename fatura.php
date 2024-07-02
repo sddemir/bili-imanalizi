@@ -159,7 +159,7 @@
                 </div> -->
                 <div class="column is-one-third ml-5">
                     <div class="field">
-                        <label class="label">Sözleşme ID</label>
+                        <label class="label">Sözleşme</label>
                         <div class="control input-container">
                             <div class="select">
                                 <select name="sozlesme_id">
@@ -167,9 +167,9 @@
                                     include 'db.php'; // Include the database connection file
 
                                     // Fetch Sözleşme IDs from the database
-                                    $result = $conn->query("SELECT sozlesme_id FROM sozlesmeler");
+                                    $result = $conn->query("SELECT aciklama FROM sozlesmeler");
                                     while ($row = $result->fetch_assoc()) {
-                                        echo "<option value='" . $row['sozlesme_id'] . "'>" . $row['sozlesme_id'] . "</option>";
+                                        echo "<option value='" . $row['aciklama'] . "'>" . $row['aciklama'] . "</option>";
                                     }
 
                                     $conn->close(); // Close the database connection
@@ -192,7 +192,7 @@
             <div class="columns">
                 <div class="column is-one-third">
                     <div class="field">
-                        <label class="label ml-5">Banka ID</label>
+                        <label class="label ml-5">Banka</label>
                         <div class="control input-container">
                             <div class="select ml-5">
                                 <select name="banka_id">
@@ -200,9 +200,9 @@
                                     include 'db.php'; // Include the database connection file
 
                                     // Fetch bank IDs from the database
-                                    $result = $conn->query("SELECT banka_id FROM bankalar");
+                                    $result = $conn->query("SELECT banka_ad FROM bankalar");
                                     while ($row = $result->fetch_assoc()) {
-                                        echo "<option value='" . $row['banka_id'] . "'>" . $row['banka_id'] . "</option>";
+                                        echo "<option value='" . $row['banka_ad'] . "'>" . $row['banka_ad'] . "</option>";
                                     }
 
                                     $conn->close(); // Close the database connection

@@ -201,9 +201,9 @@
                                 include 'db.php'; // Include the database connection file
 
                                 // Fetch 'musteri_id' options from the 'musteri_bilgi' table
-                                $result_musteri = $conn->query("SELECT musteri_id FROM musteri_bilgi");
+                                $result_musteri = $conn->query("SELECT CONCAT(musteri_ad,' ',musteri_soyad) AS musteri FROM musteri_bilgi");
                                 while ($row_musteri = $result_musteri->fetch_assoc()) {
-                                    echo "<option value='{$row_musteri["musteri_id"]}'>{$row_musteri["musteri_id"]}</option>";
+                                    echo "<option value='{$row_musteri["musteri"]}'>{$row_musteri["musteri"]}</option>";
                                 }
 
                                 $conn->close(); // Close the database connection
